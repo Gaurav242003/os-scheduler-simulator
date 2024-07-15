@@ -8,6 +8,7 @@ router.post('/', async (req, res) => {
     try {
         const process = new Process(req.body);
         await process.save();
+        console.log("saved");
         res.status(201).send(process);
     } catch (error) {
         res.status(400).send(error);

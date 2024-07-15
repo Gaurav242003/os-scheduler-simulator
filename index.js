@@ -4,6 +4,9 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const processRoutes = require('./routes/process');
+const schedulerRoutes = require('./routes/scheduler');
+
+
 
 
 
@@ -20,6 +23,8 @@ mongoose.connect(`mongodb+srv://royalgk2:${process.env.MONGO_PASS}@operatingsyst
     
 //Integrate routes into the server.
 app.use('/api/processes', processRoutes);
+//Integrate the scheduler routes
+app.use('/api/scheduler', schedulerRoutes);
 
 // Start server
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
